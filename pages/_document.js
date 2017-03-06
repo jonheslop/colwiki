@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
                     background-color: #6a9fb5;
                 }
                 .bg--tilt {
-                    transform: skewY(-10deg);
+                    transform: skewY(-12deg);
                     transform-origin: 0;
                 }
               `}} />
