@@ -2,9 +2,10 @@
   "version": "0.1.0",
   "name": "colwiki",
   "description": "Colwiki powered by Next",
-  "main": "n/a",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": "http://www.github.com/jonheslop/colwiki",
   "keywords": [
