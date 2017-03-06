@@ -18,9 +18,13 @@ export default class MyDocument extends Document {
                 .bg-cw-blue {
                     background-color: #6a9fb5;
                 }
+                .bg--tilt {
+                    transform: skewY(-10deg);
+                    transform-origin: 0;
+                }
               `}} />
         </Head>
-        <body className="sans-serif bg-washed-blue">
+        <body className="sans-serif">
           <Main />
           <NextScript />
         </body>
