@@ -2,13 +2,22 @@ import React from 'react'
 import Head from 'next/head'
 import 'isomorphic-fetch'
 import Header from '../components/header'
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 export default class extends React.Component {
     static async getInitialProps() {
-        const res = await fetch('https://www.strava.com/api/v3/segments/explore?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff&bounds=37.821362,-122.505373,37.842038,-122.465977')
-        const data = await res.json()
+        const initBounds = [[6.387154, 45.227307], [7.408560, 45.651627]]
+        const segmentRes = await fetch('https://www.strava.com/api/v3/segments/explore?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff&bounds=45.227307,6.387154,45.651627,7.408560')
+        const allSegments = await segmentRes.json()
 
-        return { segments : data.segments }
+        const climbSegments = await allSegments.segments.filter(function(segment){
+            return segment.climb_category > 0
+        })
+
+        return {
+            segments : climbSegments,
+            fitBounds: initBounds
+        }
     }
     render() {
         return (
@@ -20,8 +29,29 @@ export default class extends React.Component {
                 <main role="main" className="ml7 dark-gray ph4">
                     <header className="relative">
                         {/* <div className="bg-near-white bg--tilt w-100 h-100 absolute z-0 pv7"></div> */}
-                        <h1 className="f1 fw6 z-1 relative mt5">Find the best climbs with Colwiki</h1>
+                        <h1 className="f3 fw6 z-1 relative mt5">Find the best climbs with Colwiki</h1>
                     </header>
+
+                    <ReactMapboxGl
+                      style="mapbox://styles/mapbox/outdoors-v9"
+                      className="mapbox-colwiki"
+                      fitBounds={this.props.fitBounds}
+                      accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
+                      containerStyle={{
+                        height: "30vh",
+                        width: "60vw"
+                      }}>
+                        <Layer
+                          type="symbol"
+                          id="marker"
+                          layout={{ "icon-image": "mountain-15" }}
+                          paint={{ "icon-color": '#ff4136' }}>
+                          { this.props.segments.map(segment => (
+                              <Feature coordinates={ segment.start_latlng.reverse() }/>
+                          ))}
+                        </Layer>
+                    </ReactMapboxGl>
+
                     <table className="collapse ba br2 b--black-10 pv2 ph3 mt4">
                         <tbody>
                             <tr className="striped--near-white">
