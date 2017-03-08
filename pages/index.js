@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import 'isomorphic-fetch'
 import Header from '../components/header'
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import Map from '../components/map'
 
 export default class extends React.Component {
     static async getInitialProps() {
@@ -28,29 +28,10 @@ export default class extends React.Component {
                 <Header/>
                 <main role="main" className="ml7 dark-gray ph4">
                     <header className="relative">
-                        {/* <div className="bg-near-white bg--tilt w-100 h-100 absolute z-0 pv7"></div> */}
-                        <h1 className="f3 fw6 z-1 relative mt5">Find the best climbs with Colwiki</h1>
+                        <h1 className="f5 fw6 z-1 relative mt5">Find the best climbs with Colwiki</h1>
                     </header>
 
-                    <ReactMapboxGl
-                      style="mapbox://styles/mapbox/outdoors-v9"
-                      className="mapbox-colwiki"
-                      fitBounds={this.props.fitBounds}
-                      accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
-                      containerStyle={{
-                        height: "30vh",
-                        width: "60vw"
-                      }}>
-                        <Layer
-                          type="symbol"
-                          id="marker"
-                          layout={{ "icon-image": "mountain-15" }}
-                          paint={{ "icon-color": '#ff4136' }}>
-                          { this.props.segments.map(segment => (
-                              <Feature coordinates={ segment.start_latlng.reverse() }/>
-                          ))}
-                        </Layer>
-                    </ReactMapboxGl>
+                    <Map bounds={ this.props.fitBounds } segments={ this.props.segments } />
 
                     <table className="collapse ba br2 b--black-10 pv2 ph3 mt4">
                         <tbody>
@@ -62,7 +43,7 @@ export default class extends React.Component {
                                 <th className="tr f6 ttu fw6 pv2 ph3">Climb Category</th>
                             </tr>
                             { this.props.segments.map(segment => (
-                                <tr>
+                                <tr key={ segment.id }>
                                     <td className="pv2 ph3">{ segment.name }</td>
                                     <td className="pv2 ph3">{ segment.avg_grade }</td>
                                     <td className="pv2 ph3">{ segment.elev_difference }</td>
