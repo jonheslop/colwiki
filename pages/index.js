@@ -3,6 +3,7 @@ import Head from 'next/head'
 import 'isomorphic-fetch'
 import Header from '../components/header'
 import Map from '../components/map'
+import Segments from '../components/segments'
 
 export default class extends React.Component {
     static async getInitialProps() {
@@ -27,32 +28,8 @@ export default class extends React.Component {
                 </Head>
                 <Header/>
                 <main role="main" className="ml7 dark-gray ph4">
-                    <header className="relative">
-                        <h1 className="f5 fw6 z-1 relative mt5">Find the best climbs with Colwiki</h1>
-                    </header>
-
                     <Map bounds={ this.props.fitBounds } segments={ this.props.segments } />
-
-                    <table className="collapse ba br2 b--black-10 pv2 ph3 mt4">
-                        <tbody>
-                            <tr className="striped--near-white">
-                                <th className="tl f6 fw6 ttu pv2 ph3">Name</th>
-                                <th className="tc f6 ttu fw6 pv2 ph3">Av. Gradient</th>
-                                <th className="tc f6 ttu fw6 pv2 ph3">Elevation</th>
-                                <th className="tc f6 ttu fw6 pv2 ph3">Distance</th>
-                                <th className="tr f6 ttu fw6 pv2 ph3">Climb Category</th>
-                            </tr>
-                            { this.props.segments.map(segment => (
-                                <tr key={ segment.id }>
-                                    <td className="pv2 ph3">{ segment.name }</td>
-                                    <td className="pv2 ph3">{ segment.avg_grade }</td>
-                                    <td className="pv2 ph3">{ segment.elev_difference }</td>
-                                    <td className="pv2 ph3">{ segment.distance }</td>
-                                    <td className="pv2 ph3">{ segment.climb_category }</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                    <Segments segments={ this.props.segments }/>
                 </main>
             </div>
         )

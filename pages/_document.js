@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <title>⛰ Colwiki</title>
           <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
           <style dangerouslySetInnerHTML={{__html: `
                 .cw-blue {
