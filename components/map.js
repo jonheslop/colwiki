@@ -1,6 +1,6 @@
 import React from 'react'
 import Loading from './loading'
-import ReactMapboxGl, { Layer, Feature } from "tf-react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 export default ({bounds, segments}) => (
     <div className="mt4">
@@ -13,7 +13,7 @@ export default ({bounds, segments}) => (
             height: "50vh",
             width: "100%"
           }}>
-            <Layer
+            {/* <Layer
               type="symbol"
               id="marker"
               layout={{ "icon-image": "mountain-15" }}
@@ -23,7 +23,7 @@ export default ({bounds, segments}) => (
                       key={ segment.id }
                       coordinates={ segment.start_latlng.reverse() }/>
               ))}
-            </Layer>
+            </Layer> */}
         </ReactMapboxGl>
     </div>
 )

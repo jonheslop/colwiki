@@ -24,7 +24,7 @@ export default class extends React.Component {
         return (
             <div>
                 <Head>
-                  <title>⛰ Colwiki</title>
+                  <title>⛰ Colwiki - </title>
                 </Head>
                 <Header/>
                 <main role="main" className="ml7 dark-gray ph4">

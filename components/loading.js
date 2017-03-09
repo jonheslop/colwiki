@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default () => (
-  <div className="bg-near-white">
-    <h3>Loading...</h3>
+export default ({ title }) => (
+  <div className="bg-near-white mt4">
+    <h3>{ title || 'Loading...' }</h3>
     <style jsx>{`
       div {
         align-items: center;
         display: flex;
-        height: 30vh;
+        height: 50vh;
         justify-content: center;
       }
     `}</style>
