@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default ({segments}) => (
-    <table className="collapse br2 pv2 ph3 mt4 ba b--light-gray">
+    <table className="collapse br2 pv2 ph3 mt4 ba b--light-gray w-100">
         <tbody>
             <tr className="striped--near-white ba b--light-gray">
                 <th className="tl f6 fw6 ttu pv2 ph3">Name</th>

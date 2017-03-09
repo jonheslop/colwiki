@@ -8,8 +8,8 @@ import Segments from '../components/segments'
 export default class extends React.Component {
     static async getInitialProps() {
         const initBounds = [[6.387154, 45.227307], [7.408560, 45.651627]]
-        const segmentRes = await fetch('https://www.strava.com/api/v3/segments/explore?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff&bounds=45.227307,6.387154,45.651627,7.408560')
-        const allSegments = await segmentRes.json()
+        const res = await fetch('https://www.strava.com/api/v3/segments/explore?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff&bounds=45.227307,6.387154,45.651627,7.408560')
+        const allSegments = await res.json()
 
         const climbSegments = await allSegments.segments.filter(function(segment){
             return segment.climb_category > 0

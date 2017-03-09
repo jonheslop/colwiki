@@ -1,6 +1,6 @@
 import React from 'react'
 import Loading from './loading'
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature } from "tf-react-mapbox-gl";
 
 export default ({bounds, segments}) => (
     <div className="mt4">
@@ -10,7 +10,7 @@ export default ({bounds, segments}) => (
           fitBounds={ bounds }
           accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
           containerStyle={{
-            height: "35vh",
+            height: "50vh",
             width: "100%"
           }}>
             <Layer
