@@ -23,7 +23,7 @@ function Submit ({ createPost }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="pt4">
+    <form onSubmit={handleSubmit} className="pv4 mb4 bb bw1 b--black-10">
       <h1>Submit a Col</h1>
       <div className="cf">
           <div className="pv2 dib pr4">
