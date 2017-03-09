@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
-import PostUpvoter from './PostUpvoter'
 import Link from 'next/link'
+import PostItem from './PostItem'
 
 const POSTS_PER_PAGE = 10
 
@@ -16,17 +16,7 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts }
     <section>
         <ul className="list pa0 mv4">
             {allPosts.map((post, index) =>
-            <Link key={post.id} href={`/col?${ post.id }`}>
-                <a className="link dark-gray hover-black">
-                    <li className="mb4">
-                        <header className="bg-near-white pa2 cf">
-                            <h2 className="fl ma0">{post.name}</h2>
-                            <PostUpvoter id={post.id} votes={post.votes} />
-                        </header>
-                        <p className="ph2 lh-copy">{ post.description }  <abbr title="Strava Segment ID" className="code f6">{ post.segmentId }</abbr></p>
-                    </li>
-                </a>
-            </Link>
+              <PostItem post={ post } />
             )}
         </ul>
         {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}

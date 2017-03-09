@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 
 function PostUpvoter ({ upvote, votes, id }) {
   return (
-    <button onClick={() => upvote(id, votes + 1)} className="fr flex ph3 pv2 items-center bg-transparent ba b--black-10 br1">
+  <button onClick={() => upvote(id, votes + 1)} className="flex ph3 pv2 items-center bg-transparent ba b--black-10 br1">
         {votes}
         <style jsx>{`
             button:hover {
