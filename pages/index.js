@@ -7,7 +7,9 @@ import withData from '../lib/withData'
 export default withData((props) => (
   <App>
     <Header pathname={props.url.pathname} />
-    <Submit />
-    <PostList />
+    <main role="main" className="ml7-ns dark-gray ph4">
+        <Submit />
+        <PostList />
+    </main>
   </App>
 ))
