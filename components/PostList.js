@@ -13,28 +13,30 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts }
 
   return (
     <section>
-      <ul className="list pa0">
-        {allPosts.map((post, index) =>
-          <li key={post.id}>
-              <h2 className="bg-near-white pa2">{post.name} <abbr title="Strava Segment ID" className="code f6 fr">{ post.segmentId }</abbr></h2>
-              <p className="ph2">{ post.description }</p>
-
-              {/* <PostUpvoter id={post.id} votes={post.votes} /> */}
-          </li>
-        )}
-      </ul>
-      {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}
+        <ul className="list pa0">
+            {allPosts.map((post, index) =>
+            <li key={post.id} className="mb4">
+                <header className="bg-near-white pa2 cf">
+                    <h2 className="fl ma0">{post.name}</h2>
+                    <PostUpvoter id={post.id} votes={post.votes} />
+                </header>
+                <p className="ph2 lh-copy">{ post.description }  <abbr title="Strava Segment ID" className="code f6">{ post.segmentId }</abbr></p>
+            </li>
+            )}
+        </ul>
+        {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}
     </section>
   )
 }
 
 const allPosts = gql`
   query allPosts($first: Int!, $skip: Int!) {
-    allPosts(orderBy: createdAt_DESC, first: $first, skip: $skip) {
+    allPosts(orderBy: votes_DESC, first: $first, skip: $skip) {
       id
       name
       description
       segmentId
+      votes
       createdAt
     },
     _allPostsMeta {

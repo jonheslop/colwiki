@@ -51,6 +51,7 @@ const createPost = gql`
       name
       description
       segmentId
+      votes
       createdAt
     }
   }

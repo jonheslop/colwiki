@@ -8,7 +8,7 @@ export default ({ pathname }) => (
             <Nav />
         </header>
         <footer>
-            <small className="f6 i">Codez by Jon. Bizniz by Dov</small>
+            <small className="f6 i">By Jon &amp; Dov</small>
         </footer>
     </header>
 )
