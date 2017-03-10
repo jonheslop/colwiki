@@ -23,6 +23,9 @@ export default class MyDocument extends Document {
                     transform: skewY(-12deg);
                     transform-origin: 0;
                 }
+                .f7 {
+                    font-size: .625rem;
+                }
               `}} />
         </Head>
         <body className="sans-serif">
