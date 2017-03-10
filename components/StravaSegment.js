@@ -19,7 +19,6 @@ export default class extends React.Component {
     render() {
         return (
             <div className="pa3 pt0-ns dtc-ns br b--black-20 w5-ns">
-              <h4 className="f5 ma0 fw6">Strava segment</h4>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Name: </dt>
                 <dd className="dib ml0 gray">{ this.state.segment.name || '...' }</dd>

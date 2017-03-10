@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import slugify from 'slug'
 import { graphql } from 'react-apollo'
 
 function Submit ({ createPost }) {
@@ -8,13 +9,14 @@ function Submit ({ createPost }) {
     let name = e.target.elements.name.value
     let description = e.target.elements.description.value
     let segmentId = parseInt(e.target.elements.segmentId.value)
+    let slug = slugify(e.target.elements.name.value, {lower: true})
 
     if (name === '' || description === '' || segmentId === '') {
       window.alert('All fields are required.')
       return false
     }
 
-    createPost(name, description, segmentId)
+    createPost(name, description, segmentId, slug)
 
     // reset form
     e.target.elements.name.value = ''
@@ -45,13 +47,14 @@ function Submit ({ createPost }) {
 }
 
 const createPost = gql`
-  mutation createPost($name: String!, $description: String!, $segmentId: Int!) {
-    createPost(name: $name, description: $description, segmentId: $segmentId) {
+  mutation createPost($name: String!, $description: String!, $segmentId: Int!, $slug: String!) {
+    createPost(name: $name, description: $description, segmentId: $segmentId, slug: $slug) {
       id
       name
       description
       segmentId
       votes
+      slug
       createdAt
     }
   }
@@ -59,8 +62,8 @@ const createPost = gql`
 
 export default graphql(createPost, {
   props: ({ mutate }) => ({
-    createPost: (name, description, segmentId) => mutate({
-      variables: { name, description, segmentId },
+    createPost: (name, description, segmentId, slug) => mutate({
+      variables: { name, description, segmentId, slug },
       updateQueries: {
         allPosts: (previousResult, { mutationResult }) => {
           const newPost = mutationResult.data.createPost

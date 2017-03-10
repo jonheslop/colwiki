@@ -14,7 +14,7 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, 
 
   if ( query ) {
       allPosts = allPosts.filter(function(post){
-          return post.id == query.id
+          return post.slug == query.id
       })
   }
 
@@ -22,9 +22,7 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, 
     <section>
         <ul className="list pa0 mv4">
             {allPosts.map((post, index) =>
-             <div>
-                  <PostItem key={ post.id } post={ post } />
-              </div>
+                <PostItem key={ post.id } post={ post } />
             )}
         </ul>
         {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}
@@ -40,6 +38,7 @@ const allPosts = gql`
       description
       segmentId
       votes
+      slug
       createdAt
     },
     _allPostsMeta {
