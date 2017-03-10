@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import 'isomorphic-fetch'
-import Header from '../components/header'
+import Header from '../components/Header'
 import Map from '../components/map'
 import Segments from '../components/segments'
 

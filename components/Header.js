@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from './nav'
+import Nav from './Nav'
 
 export default () => (
     <header role="banner" className="fixed vh-100 bg-dark-gray near-white top-0 left-0 w5 flex content-center justify-center flex-column border-box pa4">
