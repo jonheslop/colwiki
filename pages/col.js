@@ -1,13 +1,13 @@
 import App from '../components/App'
 import Header from '../components/Header'
-import PostSingle from '../components/PostSingle'
+import PostList from '../components/PostList'
 import withData from '../lib/withData'
 
 export default withData((props) => (
-    <App>
-        <Header pathname={props.url.pathname} />
-        <main role="main" className="ml7-ns dark-gray ph4">
-            <PostSingle query={props.url.query} />
-        </main>
-    </App>
+  <App>
+    <Header pathname={props.url.pathname} query={props.url.query} />
+    <main role="main" className="ml7-ns dark-gray ph4">
+        <PostList query={props.url.query} />
+    </main>
+  </App>
 ))
