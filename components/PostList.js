@@ -11,7 +11,7 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, 
   }
 
   const areMorePosts = allPosts.length < _allPostsMeta.count
-  
+
   if ( query ) {
       allPosts = allPosts.filter(function(post){
           return post.id == query.id
@@ -22,7 +22,9 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, 
     <section>
         <ul className="list pa0 mv4">
             {allPosts.map((post, index) =>
-              <PostItem key={ post.id } post={ post } />
+             <div>
+                  <PostItem key={ post.id } post={ post } />
+              </div>
             )}
         </ul>
         {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}

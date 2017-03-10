@@ -9,7 +9,6 @@ export default withData((props) => (
     <Header pathname={ props.url.pathname } query={ props.url.query } />
     <main role="main" className="ml7-ns dark-gray ph4">
         <PostList query={ props.url.query } />
-        <Segment segment={ props.strava } />
     </main>
   </App>
 ))

@@ -1,33 +1,47 @@
 import React from 'react'
+import 'isomorphic-fetch'
 
-function segmentDetails({ segment }) {
-    if (segment) {
+export default class extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            segment: {}
+        };
+    }
+    async componentWillMount() {
+        const res = await fetch('https://www.strava.com/api/v3/segments/' + this.props.segment + '?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff')
+        const strava = await res.json()
+
+        this.setState({
+            segment : strava
+        })
+    }
+    render() {
         return (
-            <div className="pt4">
-              <h4 className="f5 fw6">Col stats</h4>
+            <div className="pa3 pt0-ns dtc-ns br b--black-20 mw6">
+              <h4 className="f5 ma0 fw6">Strava segment</h4>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Name: </dt>
-                <dd className="dib ml0 gray">{ segment.name }</dd>
+                <dd className="dib ml0 gray">{ this.state.segment.name || '...' }</dd>
               </dl>
-              <dl className="f6 lh-title mv2">
+             <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Length: </dt>
-                <dd className="dib ml0 gray">{ (segment.distance / 1000).toFixed(1) }km</dd>
+                <dd className="dib ml0 gray">{ (this.state.segment.distance / 1000).toFixed(1) || '...' }km</dd>
               </dl>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Elevation: </dt>
-                <dd className="dib ml0 gray">{ segment.total_elevation_gain }m</dd>
+                <dd className="dib ml0 gray">{ this.state.segment.total_elevation_gain || '...' }m</dd>
               </dl>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Avg. Gradient: </dt>
-                <dd className="dib ml0 gray">{ segment.average_grade }%</dd>
+                <dd className="dib ml0 gray">{ this.state.segment.average_grade || '...' }%</dd>
               </dl>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Category: </dt>
-                <dd className="dib ml0 gray">{ segment.climb_category = 5 ? 'HC' : segment.climb_category }</dd>
+                <dd className="dib ml0 gray">{ this.state.segment.climb_category = 5 ? 'HC' : this.state.segment.climb_category }</dd>
               </dl>
+              <a className="f6 link orange i" href={`https://www.strava.com/segments/${this.state.segment.id}`}>Link to Strava »</a>
             </div>
         )
     }
 }
-
-export default (segmentDetails)
