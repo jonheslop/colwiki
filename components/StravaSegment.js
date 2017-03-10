@@ -18,7 +18,7 @@ export default class extends React.Component {
     }
     render() {
         return (
-            <div className="pa3 pt0-ns dtc-ns br b--black-20 mw6">
+            <div className="pa3 pt0-ns dtc-ns br b--black-20 w5-ns">
               <h4 className="f5 ma0 fw6">Strava segment</h4>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Name: </dt>
@@ -35,6 +35,10 @@ export default class extends React.Component {
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Avg. Gradient: </dt>
                 <dd className="dib ml0 gray">{ this.state.segment.average_grade || '...' }%</dd>
+              </dl>
+              <dl className="f6 lh-title mv2">
+                <dt className="dib b mr1">Max. Gradient: </dt>
+                <dd className="dib ml0 gray">{ this.state.segment.maximum_grade || '...' }%</dd>
               </dl>
               <dl className="f6 lh-title mv2">
                 <dt className="dib b mr1">Category: </dt>
