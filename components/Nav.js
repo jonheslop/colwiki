@@ -1,11 +1,11 @@
 import React from 'react'
+import Link from 'next/link'
 
-export default () => (
+export default ({pathname}) => (
     <nav className="lh-copy mt5">
         <ul className="list pa0">
-            <li><a className="link near-white hover-gold fw4 f5" href="#">About</a></li>
-            <li><a className="link near-white hover-gold fw4 f5" href="#">Top Rated</a></li>
-            <li><a className="link near-white hover-gold fw4 f5" href="#">Something else</a></li>
+            <li className="pv1"><Link href="/"><a className={`link hover-gold fw4 f5 ${pathname === '/' ? 'gold' : 'near-white'}`}>Home</a></Link></li>
+            <li className="pv1"><Link href="/about"><a className={`link hover-gold fw4 f5 ${pathname === '/about' ? 'gold' : 'near-white'}`}>About</a></Link></li>
         </ul>
     </nav>
 )
