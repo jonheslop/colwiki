@@ -8,8 +8,8 @@ export default withData((props) => (
   <App>
     <Header pathname={props.url.pathname} query={props.url.query} />
     <main role="main" className="ml7-ns dark-gray ph4">
-        <Submit />
-        <PostList />
+      <Submit />
+      <PostList />
     </main>
   </App>
 ))

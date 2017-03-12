@@ -28,19 +28,19 @@ function Submit ({ createPost }) {
     <form onSubmit={handleSubmit} className="pv4 mb4 bb bw1 b--black-10">
       <h1>Submit a Col</h1>
       <div className="cf">
-          <div className="pv2 dib pr4">
-              <label htmlFor="name" className="f6 b db mb2">Col Name</label>
-              <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='name' name='name' />
-          </div>
-          <div className="pv2 dib">
-              <label htmlFor="segmentId" className="f6 b db mb2">Strava segment ID</label>
-              <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='646754645' name='segmentId' pattern="\d*" />
-          </div>
+        <div className="pv2 dib pr4">
+          <label htmlFor="name" className="f6 b db mb2">Col Name</label>
+          <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='name' name='name' />
+        </div>
+        <div className="pv2 dib">
+          <label htmlFor="segmentId" className="f6 b db mb2">Strava segment ID</label>
+          <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='646754645' name='segmentId' pattern="\d*" />
+        </div>
      </div>
       <div className="pv2">
-          <label htmlFor="comment" className="f6 b db mb2">Description <span className="normal black-60">(optional)</span></label>
-          <textarea name="description" className="db border-box hover-black w-100 measure ba b--black-20 pa2 br1 mb2" placeholder="Tell us a story&hellip;" aria-describedby="comment-desc"></textarea>
-          <button type='submit' className="b ph3 pv2 input-reset ba bg-dark-gray near-white bg-dark-gray pointer f6">Submit</button>
+        <label htmlFor="comment" className="f6 b db mb2">Description <span className="normal black-60">(optional)</span></label>
+        <textarea name="description" className="db border-box hover-black w-100 measure ba b--black-20 pa2 br1 mb2" placeholder="Tell us a story&hellip;" aria-describedby="comment-desc"></textarea>
+        <button type='submit' className="b ph3 pv2 input-reset ba bg-dark-gray near-white bg-dark-gray pointer f6">Submit</button>
       </div>
     </form>
   )

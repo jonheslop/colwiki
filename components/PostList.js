@@ -20,12 +20,12 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, 
 
   return (
     <section>
-        <ul className="list pa0 mv4">
-            {allPosts.map((post, index) =>
-                <PostItem key={ post.id } post={ post } />
-            )}
-        </ul>
-        {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}
+      <ul className="list pa0 mv4">
+        {allPosts.map((post, index) =>
+          <PostItem key={ post.id } post={ post } />
+        )}
+      </ul>
+      {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}
     </section>
   )
 }

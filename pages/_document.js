@@ -10,23 +10,23 @@ export default class MyDocument extends Document {
           <title>⛰ Colwiki</title>
           <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
           <style dangerouslySetInnerHTML={{__html: `
-                .cw-blue {
-                    color: #6a9fb5;
-                }
-                .b--cw-blue {
-                    border-color: #6a9fb5;
-                }
-                .bg-cw-blue {
-                    background-color: #6a9fb5;
-                }
-                .bg--tilt {
-                    transform: skewY(-12deg);
-                    transform-origin: 0;
-                }
-                .f7 {
-                    font-size: .625rem;
-                }
-              `}} />
+            .cw-blue {
+                color: #6a9fb5;
+            }
+            .b--cw-blue {
+                border-color: #6a9fb5;
+            }
+            .bg-cw-blue {
+                background-color: #6a9fb5;
+            }
+            .bg--tilt {
+                transform: skewY(-12deg);
+                transform-origin: 0;
+            }
+            .f7 {
+                font-size: .625rem;
+            }
+          `}} />
         </Head>
         <body className="sans-serif">
           <Main />

@@ -4,22 +4,22 @@ import { graphql } from 'react-apollo'
 
 function PostUpvoter ({ upvote, votes, id }) {
   return (
-  <button onClick={() => upvote(id, votes + 1)} className="flex ph3 pv2 items-center bg-transparent ba b--black-10 br1">
-        {votes}
-        <style jsx>{`
-            button:hover {
-                background-color: #cdecff;
-            }
-            button:before {
-                align-self: center;
-                border-color: transparent transparent #000000 transparent;
-                border-style: solid;
-                border-width: 0 5px 8px 5px;
-                content: "";
-                height: 0;
-                margin-right: 8px;
-                width: 0;
-            }
+    <button onClick={() => upvote(id, votes + 1)} className="flex ph3 pv2 items-center bg-transparent ba b--black-10 br1">
+      {votes}
+      <style jsx>{`
+        button:hover {
+            background-color: #cdecff;
+        }
+        button:before {
+            align-self: center;
+            border-color: transparent transparent #000000 transparent;
+            border-style: solid;
+            border-width: 0 5px 8px 5px;
+            content: "";
+            height: 0;
+            margin-right: 8px;
+            width: 0;
+        }
       `}</style>
     </button>
   )

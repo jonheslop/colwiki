@@ -1,5 +1,5 @@
 export default ({ children }) => (
-    <div>
-        {children}
-    </div>
+  <div>
+    {children}
+  </div>
 )
