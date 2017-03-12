@@ -1,7 +1,13 @@
+import Link from 'next/link'
+
 export default ({ pathname, query }) => (
   <div className="w-100 mb3 cf">
-    <span className="logo"></span>
-    <span className="logo logo--near-white fr"></span>
+    <Link href="/" prefetch>
+      <a>
+        <span className="logo"></span>
+        <span className="logo logo--near-white fr"></span>
+      </a>
+    </Link>
     <style jsx>{`
       .logo {
           align-self: center;
