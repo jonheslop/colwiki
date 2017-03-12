@@ -1,4 +1,3 @@
-
 export default ({ term, value, unit }) => (
   <dl className="f6 lh-title mv2">
     <dt className="dib b mr1">{ term }:</dt>
