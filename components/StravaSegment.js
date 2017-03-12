@@ -1,6 +1,6 @@
 import React from 'react'
 import 'isomorphic-fetch'
-
+import DescriptionTerm from './DescriptionTerm'
 export default class extends React.Component {
     constructor(props) {
         super(props);
@@ -19,30 +19,12 @@ export default class extends React.Component {
     render() {
         return (
             <div className="pa3 pt0-ns dtc-ns br b--black-20 w5-ns">
-              <dl className="f6 lh-title mv2">
-                <dt className="dib b mr1">Name: </dt>
-                <dd className="dib ml0 gray">{ this.state.segment.name || '...' }</dd>
-              </dl>
-             <dl className="f6 lh-title mv2">
-                <dt className="dib b mr1">Length: </dt>
-                <dd className="dib ml0 gray">{ (this.state.segment.distance / 1000).toFixed(1) || '...' }km</dd>
-              </dl>
-              <dl className="f6 lh-title mv2">
-                <dt className="dib b mr1">Elevation: </dt>
-                <dd className="dib ml0 gray">{ this.state.segment.total_elevation_gain || '...' }m</dd>
-              </dl>
-              <dl className="f6 lh-title mv2">
-                <dt className="dib b mr1">Avg. Gradient: </dt>
-                <dd className="dib ml0 gray">{ this.state.segment.average_grade || '...' }%</dd>
-              </dl>
-              <dl className="f6 lh-title mv2">
-                <dt className="dib b mr1">Max. Gradient: </dt>
-                <dd className="dib ml0 gray">{ this.state.segment.maximum_grade || '...' }%</dd>
-              </dl>
-              <dl className="f6 lh-title mv2">
-                <dt className="dib b mr1">Category: </dt>
-                <dd className="dib ml0 gray">{ this.state.segment.climb_category = 5 ? 'HC' : this.state.segment.climb_category }</dd>
-              </dl>
+              <DescriptionTerm term="Name" value={ this.state.segment.name || '...' } unit="" />
+              <DescriptionTerm term="Length" value={ (this.state.segment.distance / 1000).toFixed(1) || '...' } unit="km" />
+              <DescriptionTerm term="Elevation" value={ this.state.segment.total_elevation_gain || '...' } unit="m" />
+              <DescriptionTerm term="Avg. Gradient" value={ this.state.segment.average_grade || '...' } unit="%" />
+              <DescriptionTerm term="Max. Gradient" value={ this.state.segment.maximum_grade || '...' } unit="%" />
+              <DescriptionTerm term="Category" value={ this.state.segment.climb_category == 5 ? 'HC' : this.state.segment.climb_category } unit="" />
               <a className="f6 link orange i" href={`https://www.strava.com/segments/${this.state.segment.id}`}>Link to Strava »</a>
             </div>
         )
