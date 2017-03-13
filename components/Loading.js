@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default ({ title }) => (
-  <div className="bg-near-white dark-gray mt4">
+  <div className="bg-near-white dark-gray">
     <h3>{ title || 'Loading...' }</h3>
     <style jsx>{`
       div {
