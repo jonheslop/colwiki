@@ -7,7 +7,7 @@ export default ({ title }) => (
       div {
         align-items: center;
         display: flex;
-        height: 50vh;
+        height: 40vh;
         justify-content: center;
       }
     `}</style>

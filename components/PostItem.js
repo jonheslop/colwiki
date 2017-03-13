@@ -14,9 +14,9 @@ export default ({ post }) => (
       </h2>
       <PostUpvoter id={ post.id } votes={ post.votes } />
     </header>
-    <Segment segment={ post.segmentId }/>
     <div className="dtc-ns pa3 pt0-ns">
       <p className="ph2 lh-copy">{ post.description }</p>
     </div>
+    <Segment segment={ post.segmentId }/>
   </li>
 )

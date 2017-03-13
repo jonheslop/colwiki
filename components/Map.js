@@ -7,40 +7,57 @@ export default class extends Component {
     this.state = {
       loading: true,
       map: '',
+      start: props.start,
+      end: props.end,
+      line: props.line
     }
   }
   componentWillMount() {
     if (typeof window !== 'undefined') {
       const ReactMapboxGl = require('react-mapbox-gl').default;
+      const polyline = require('@mapbox/polyline');
       const Layer = ReactMapboxGl.Layer;
       const Feature = ReactMapboxGl.Feature;
+      const Marker = ReactMapboxGl.Marker;
+
+      console.log(polyline.decode(this.state.line.polyline))
+
+      const routeLine = polyline.decode(this.state.line.polyline)
+
       const map = (
-        <div className="mv4">
+        <div>
           <ReactMapboxGl
             style="mapbox://styles/mapbox/outdoors-v9"
             accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
+            center={ this.state.end.reverse() }
+            // fitbounds={ this.state.start, this.state.end }
             containerStyle={{
-              height: "50vh",
+              height: "40vh",
               width: "100%"
             }}>
-              <Layer
-                type="symbol"
-                id="marker"
-                layout={{ "icon-image": "marker-15" }}>
-                <Feature coordinates={[-0.481747846041145, 51.3233379650232]}/>
-              </Layer>
+            <Marker
+              coordinates={ this.state.start }>
+              <h1>Start</h1>
+            </Marker>
+            <Marker
+              coordinates={ this.state.end }>
+              <h1>End</h1>
+            </Marker>
+            <Layer
+              type="line"
+              id="line"
+              layout={{ "line-cap": "round", "line-join": "round" }}
+              paint={{ "line-color": "#4790E5", "line-width": 12 }}>
+              <Feature coordinates={ routeLine }/>
+            </Layer>
           </ReactMapboxGl>
         </div>
       )
       this.setState({
-        map: map
+        map: map,
+        loading: false
       })
     }
-  }
-  componentDidMount() {
-    this.setState({
-      loading: false
-    })
   }
   render() {
     if (this.state.loading) {
