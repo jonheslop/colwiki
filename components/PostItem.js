@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PostUpvoter from './PostUpvoter'
 import Segment from './StravaSegment'
+import Map from './Map'
 
 export default ({ post }) => (
   <li className="mb4 ba b--black-20">
@@ -14,9 +15,10 @@ export default ({ post }) => (
       </h2>
       <PostUpvoter id={ post.id } votes={ post.votes } />
     </header>
+    <Segment segment={ post.segment } />
     <div className="dtc-ns pa3 pt0-ns">
       <p className="ph2 lh-copy">{ post.description }</p>
     </div>
-    <Segment segment={ post.segmentId }/>
+    <Map segment={ post.segment } />
   </li>
 )

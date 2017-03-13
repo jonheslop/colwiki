@@ -39,6 +39,7 @@ const allPosts = gql`
       segmentId
       votes
       slug
+      segment
       createdAt
     },
     _allPostsMeta {
