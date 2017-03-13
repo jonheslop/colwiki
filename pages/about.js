@@ -6,7 +6,7 @@ export default (props) => (
     <Header pathname={props.url.pathname} />
         <main role="main" className="ml7-ns dark-gray ph4">
           <header className="mt4">
-            <h1 className="f1 lh-copy mb0">The Idea Behind This Website</h1>
+            <h1 className="f1 lh-title mb0">The idea behind the<br/>Untitled Col Database&nbsp;Project</h1>
           </header>
           <article className="lh-copy">
             <p>Wouldn&rsquo;t it be nice if there was a place to find all the best climbs.</p>
