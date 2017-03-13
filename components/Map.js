@@ -21,7 +21,7 @@ export default class extends Component {
       const routeLine = polyline.decode(this.state.segment.map.polyline)
 
       const map = (
-        <div>
+        <div className="bt b--black-20">
           <ReactMapboxGl
             style="mapbox://styles/mapbox/outdoors-v9"
             accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"

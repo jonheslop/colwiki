@@ -17,7 +17,7 @@ export default ({ post }) => (
     </header>
     <Segment segment={ post.segment } />
     <div className="dtc-ns pa3 pt0-ns">
-      <p className="ph2 lh-copy">{ post.description }</p>
+      <p className="ph2 lh-copy f6">{ post.description }</p>
     </div>
     <Map segment={ post.segment } />
   </li>
