@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react';
 import 'isomorphic-fetch'
 import DescriptionTerm from './DescriptionTerm'
-export default class extends React.Component {
+import { initStore } from '../lib/initStore'
+
+export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
