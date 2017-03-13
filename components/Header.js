@@ -6,7 +6,7 @@ export default ({ pathname, query }) => (
   <header role="banner" className="fixed-ns vh-100-ns w-100 w5-ns bg-dark-gray near-white top-0 left-0 flex content-center justify-center flex-column border-box pa4">
     <header className="items-start flex-auto">
       <Logo />
-      <h1 className="f4 lh-title fw6"><Link href="/" prefetch><a className="link near-white hover-gold">Untitled Col<br/>Database Project</a></Link></h1>
+      <h1 className="fl w-50 w-100-ns f4 lh-title fw6 pl3 pl0-ns"><Link href="/" prefetch><a className="link near-white hover-gold">Untitled Col<br/>Database Project</a></Link></h1>
       <Nav pathname={ pathname } />
     </header>
     <footer className="code lh-copy">

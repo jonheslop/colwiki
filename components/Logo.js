@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export default ({ pathname, query }) => (
-  <div className="w-100 mb3 cf">
+  <div className="fl w-50 w-100-ns mb3-ns cf">
     <Link href="/" prefetch>
       <a>
         <svg viewBox="0 0 60 50">
