@@ -1,6 +1,7 @@
 import React from 'react'
 import Loading from './loading'
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import polyline from '@mapbox/polyline'
 
 export default ({bounds, segments}) => (
     <div className="mt4">
@@ -13,7 +14,7 @@ export default ({bounds, segments}) => (
             height: "50vh",
             width: "100%"
           }}>
-            {/* <Layer
+            <Layer
               type="symbol"
               id="marker"
               layout={{ "icon-image": "mountain-15" }}
@@ -22,8 +23,20 @@ export default ({bounds, segments}) => (
                   <Feature
                       key={ segment.id }
                       coordinates={ segment.start_latlng.reverse() }/>
+
               ))}
-            </Layer> */}
+            </Layer>
+            <Layer
+              type="line"
+              id="polylines"
+              layout={{ "line-cap": "round", "line-join": "round" }}
+              paint={{ "line-color": "#4790E5", "line-width": 12 }}>
+              { segments.map(segment => (
+                <Feature
+                  key={ segment.id }
+                  coordinates={ polyline.decode(segment.points) }/>
+              ))}
+            </Layer>
         </ReactMapboxGl>
     </div>
 )
