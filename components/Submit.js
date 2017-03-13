@@ -3,7 +3,7 @@ import slugify from 'slug'
 import { graphql } from 'react-apollo'
 
 function Submit ({ createPost }) {
-  function handleSubmit (e) {
+  async function handleSubmit (e) {
     e.preventDefault()
 
     let name = e.target.elements.name.value
@@ -16,7 +16,12 @@ function Submit ({ createPost }) {
       return false
     }
 
-    createPost(name, description, segmentId, slug)
+    const res = await fetch('https://www.strava.com/api/v3/segments/' + segmentId + '?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff')
+    const segment = await res.json()
+
+    console.log(segment)
+
+    createPost(name, description, segmentId, slug, segment)
 
     // reset form
     e.target.elements.name.value = ''
@@ -34,7 +39,7 @@ function Submit ({ createPost }) {
         </div>
         <div className="pv2 dib">
           <label htmlFor="segmentId" className="f6 b db mb2">Strava segment ID</label>
-          <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='646754645' name='segmentId' pattern="\d*" />
+          <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='4704703' name='segmentId' pattern="\d*" />
         </div>
      </div>
       <div className="pv2">
@@ -47,14 +52,15 @@ function Submit ({ createPost }) {
 }
 
 const createPost = gql`
-  mutation createPost($name: String!, $description: String!, $segmentId: Int!, $slug: String!) {
-    createPost(name: $name, description: $description, segmentId: $segmentId, slug: $slug) {
+  mutation createPost($name: String!, $description: String!, $segmentId: Int!, $slug: String!, $segment: Json!) {
+    createPost(name: $name, description: $description, segmentId: $segmentId, slug: $slug, segment: $segment) {
       id
       name
       description
       segmentId
       votes
       slug
+      segment
       createdAt
     }
   }
@@ -62,8 +68,8 @@ const createPost = gql`
 
 export default graphql(createPost, {
   props: ({ mutate }) => ({
-    createPost: (name, description, segmentId, slug) => mutate({
-      variables: { name, description, segmentId, slug },
+    createPost: (name, description, segmentId, slug, segment) => mutate({
+      variables: { name, description, segmentId, slug, segment },
       updateQueries: {
         allPosts: (previousResult, { mutationResult }) => {
           const newPost = mutationResult.data.createPost
