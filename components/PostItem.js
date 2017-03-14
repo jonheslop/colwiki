@@ -3,7 +3,7 @@ import PostUpvoter from './PostUpvoter'
 import Segment from './StravaSegment'
 import Map from './Map'
 
-export default ({ post }) => (
+export default ({ post, hasQuery }) => (
   <li className="mb4 ba b--black-20">
     <header className="bg-near-white pa3 cf flex items-center bb b--black-20">
       <h2 className="ma0 items-start flex-auto">
@@ -19,6 +19,6 @@ export default ({ post }) => (
     <div className="dtc-ns pa3 pt0-ns">
       <p className="ph2 lh-copy f6">{ post.description }</p>
     </div>
-    <Map segment={ post.segment } />
+    { hasQuery ? <Map segment={ post.segment } /> : '' }
   </li>
 )
