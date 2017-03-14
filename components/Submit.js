@@ -35,17 +35,23 @@ function Submit ({ createPost }) {
       <div className="cf">
         <div className="pv2 dib pr4">
           <label htmlFor="name" className="f6 b db mb2">Col Name</label>
-          <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='name' name='name' />
+          <input className="pa2 input-reset ba bg-transparent b--black-20" placeholder='name' name='name' />
         </div>
         <div className="pv2 dib">
           <label htmlFor="segmentId" className="f6 b db mb2">Strava segment ID</label>
-          <input className="pa2 input-reset ba bg-transparent b--black-20 br1" placeholder='4704703' name='segmentId' pattern="\d*" />
+          <input className="pa2 input-reset ba bg-transparent b--black-20" placeholder='4704703' name='segmentId' pattern="\d*" />
         </div>
      </div>
       <div className="pv2">
         <label htmlFor="comment" className="f6 b db mb2">Description <span className="normal black-60">(optional)</span></label>
-        <textarea name="description" className="db border-box hover-black w-100 measure ba b--black-20 pa2 br1 mb2" placeholder="Tell us a story&hellip;" aria-describedby="comment-desc"></textarea>
-        <button type='submit' className="b ph3 pv2 input-reset ba bg-dark-gray near-white bg-dark-gray pointer f6">Submit</button>
+        <textarea name="description" className="db border-box hover-black w-100 measure ba b--black-20 pa2 mb2" placeholder="Tell us a story&hellip;" aria-describedby="comment-desc"></textarea>
+        <input class="submit" type='submit' className="b ph3 pv2 input-reset ba bg-dark-gray near-white b--dark-gray pointer f6" value="Submit" />
+        <style jsx>{`
+          .submit:hover {
+            background-color: #fff;
+            color: #333;
+          }
+        `}</style>
       </div>
     </form>
   )
