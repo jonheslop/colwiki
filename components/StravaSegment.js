@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import 'isomorphic-fetch'
 import DescriptionTerm from './DescriptionTerm'
-import { createStore } from 'redux'
-import Map from '../components/Map'
-import Loading from './Loading'
 
 export default ({ segment }) => (
     <div className="pa3 pt0-ns dtc-ns br b--black-20 w5-ns">
