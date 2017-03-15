@@ -20,6 +20,8 @@ export default (props) => (
               <li>Add photos of the climb</li>
               <li>View all climbs on a map</li>
               <li>String climbs together and create <span className="small-caps">gpx</span> file</li>
+              <li><s>Static maps with route overlayed <a href="https://www.mapbox.com/blog/static-styles-with-overlays/?utm_source=abnewsletter-march&utm_medium=email&utm_content=overlays-blog-abtest&utm_campaign=overlays-blog-abtest">example</a></s></li>
+              <li>Swag 3D maps <a href="https://www.mapbox.com/blog/3d-terrain-threejs/?utm_source=abnewsletter-march&utm_medium=email&utm_content=terrain-blog-abtest&utm_campaign=terrain-blog-abtest">example</a></li>
             </ul>
           </article>
     </main>
