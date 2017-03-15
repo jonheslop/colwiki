@@ -4,24 +4,34 @@ import { graphql } from 'react-apollo'
 
 function PostUpvoter ({ upvote, votes, id }) {
   return (
-    <button onClick={() => upvote(id, votes + 1)} className="flex ph3 pv2 items-center bg-transparent ba b--black-10 br1">
+    <div className="flex items-center">
+      <button onClick={() => upvote(id, votes + 1)} className="upvote flex pa2 items-center bg-transparent ba b--black-10 br1 mr2" />
       {votes}
+      <button onClick={() => upvote(id, votes - 1)} className="downvote flex pa2 items-center bg-transparent ba b--black-10 br1 ml2" />
       <style jsx>{`
         button:hover {
             background-color: #cdecff;
         }
-        button:before {
+        .upvote:before {
             align-self: center;
             border-color: transparent transparent #000000 transparent;
             border-style: solid;
             border-width: 0 5px 8px 5px;
             content: "";
             height: 0;
-            margin-right: 8px;
             width: 0;
         }
-      `}</style>
-    </button>
+        .downvote:before {
+            align-self: center;
+            border-color: #000000 transparent transparent transparent;
+            border-style: solid;
+            border-width: 8px 5px 0 5px;
+            content: "";
+            height: 0;
+            width: 0;
+        }
+        `}</style>
+      </div>
   )
 }
 
@@ -41,7 +51,7 @@ export default graphql(upvotePost, {
       optimisticResponse: {
         updatePost: {
           id: ownProps.id,
-          votes: ownProps.votes + 1
+          votes: ownProps.votes
         }
       }
     })
