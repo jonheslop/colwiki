@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import PostUpvoter from './PostUpvoter'
 import Segment from './StravaSegment'
-import Map from './Map'
+import AddImage from './AddImage'
+import MapGL from './MapGL'
+import MapStatic from './MapStatic'
 
 export default ({ post, hasQuery }) => (
   <li className="mb4 ba b--black-20">
@@ -15,10 +17,11 @@ export default ({ post, hasQuery }) => (
       </h2>
       <PostUpvoter id={ post.id } votes={ post.votes } />
     </header>
-    <Segment segment={ post.segment } />
-    <div className="dtc-ns pa3 pt0-ns">
+    <article className="pa3 bb b--black-20 cf">
+      { post.image ? <img className="v-mid fr w-50 w-third-ns" src={ post.image.url } /> : <AddImage postid={ post.id } /> }
       <p className="ph2 lh-copy f6">{ post.description }</p>
-    </div>
-    { hasQuery ? <Map segment={ post.segment } /> : '' }
+    </article>
+    <Segment segment={ post.segment } />
+    { hasQuery ? <MapGL segment={ post.segment } /> : <MapStatic segment={ post.segment } /> }
   </li>
 )
