@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Dropzone from 'react-dropzone'
+import DropzoneMessage from './DropzoneMessage'
 
 class CreatePage extends React.Component {
 
@@ -13,29 +14,40 @@ class CreatePage extends React.Component {
   state = {
     id: this.props.postid,
     imageUrl: '',
-    imageId: '',
+    imageId: ''
   }
 
   render () {
     return (
       <div className='fr w-50 w-third-ns'>
-        <input hidden name="id" value={this.state.id} />
+        <input hidden name="id" value={this.state.id} readOnly />
           {!this.state.imageId &&
           <Dropzone
             onDrop={this.onDrop}
             accept='image/*'
             multiple={false}
-            className="ba b--dashed w-100 aspect-ratio aspect-ratio--1x1 b--black-20 gray tc lh-copy f6 i bg-near-white">
+            style={{}}>
             {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-              if (isDragActive) {
-                return <div className="aspect-ratio--object"><span className="absolute left-0 right-0 tc" style={{top: '50%', transform: 'translate(0, -50%)'}}>Ok, let go, we got this</span></div>
-              }
-              if (isDragReject) {
-                return <div className="aspect-ratio--object"><span className="absolute left-0 right-0 tc" style={{top: '50%', transform: 'translate(0, -50%)'}}>This file is not authorized</span></div>
-              }
-              return acceptedFiles.length || rejectedFiles.length
-                ? <div className="aspect-ratio--object"><span className="absolute left-0 right-0 tc" style={{top: '50%', transform: 'translate(0, -50%)'}}>Uploading&hellip;</span></div>
-                : <div className="aspect-ratio--object"><span className="absolute left-0 right-0 tc" style={{top: '50%', transform: 'translate(0, -50%)'}}>Drag photo here</span></div>
+                if (isDragActive) {
+                  return (
+                    <DropzoneMessage bgColor="washed-yellow" color="gold" donger="༼つ ் ▽ ் ༽つ" message="Ok, let go, we got this" />
+                    )
+                }
+                if (isDragReject) {
+                  return (
+                    <DropzoneMessage bgColor="washed-red" color="red" donger="¯_| ಠ ∧ ಠ |_/¯" message="Images only please" />
+                  )
+                }
+                if (acceptedFiles != 0) {
+                  return (
+                    <DropzoneMessage bgColor="washed-green" color="green" donger="ᕙ( ~ . ~ )ᕗ" message="Uploading&hellip;" />
+                  )
+                }
+                if (!isDragActive && !isDragReject) {
+                  return (
+                    <DropzoneMessage bgColor="near-white" color="black-20" message="Drag photo here" />
+                  )
+                }
             }}
           </Dropzone>}
           {this.state.imageUrl &&
