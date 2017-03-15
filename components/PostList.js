@@ -6,10 +6,7 @@ import PostItem from './PostItem'
 const POSTS_PER_PAGE = 10
 
 function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, query }) {
-  if (loading) {
-    return <div>Loading</div>
-  }
-
+if (allPosts && allPosts.length) {
   const areMorePosts = allPosts.length < _allPostsMeta.count
   let hasQuery = false
 
@@ -27,9 +24,11 @@ function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, 
           <PostItem key={ post.id } post={ post } hasQuery={ hasQuery } />
         )}
       </ul>
-      {areMorePosts ? <button onClick={() => loadMorePosts()}><span />Show More</button> : ''}
+      {areMorePosts ? <button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}
     </section>
   )
+}
+  return <div>Loading</div>
 }
 
 const allPosts = gql`
@@ -42,6 +41,9 @@ const allPosts = gql`
       votes
       slug
       segment
+      image {
+        url
+      }
       createdAt
     },
     _allPostsMeta {
