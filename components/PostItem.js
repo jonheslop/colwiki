@@ -5,11 +5,11 @@ import AddImage from './AddImage'
 import MapGL from './MapGL'
 import MapStatic from './MapStatic'
 
-export default ({ post, hasQuery }) => (
+export default ({post, hasQuery}) => (
   <li className="mb4 ba b--black-20">
     <header className="bg-near-white pa3 cf flex items-center bb b--black-20">
       <h2 className="ma0 items-start flex-auto">
-        <Link key={ post.id } href={`/col?id=${ post.slug }`} prefetch>
+        <Link key={ post.id } href={`/col?id=${post.slug}`} prefetch>
           <a className="link dark-gray hover-black">
             { post.name }
           </a>

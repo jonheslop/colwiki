@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default({segment}) => (
   <div className="dtc-ns pa3 w-100 w-two-thirds">

@@ -1,33 +1,33 @@
 import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
+import {graphql} from 'react-apollo'
 import Link from 'next/link'
 import PostItem from './PostItem'
 
 const POSTS_PER_PAGE = 10
 
-function PostList ({ data: { allPosts, loading, _allPostsMeta }, loadMorePosts, query }) {
-if (allPosts && allPosts.length) {
-  const areMorePosts = allPosts.length < _allPostsMeta.count
-  let hasQuery = false
+function PostList({data: {allPosts, loading, _allPostsMeta}, loadMorePosts, query}) {
+  if (allPosts && allPosts.length) {
+    const areMorePosts = allPosts.length < _allPostsMeta.count
+    let hasQuery = false
 
-  if ( query ) {
-      allPosts = allPosts.filter(function(post){
-          return post.slug == query.id
+    if (query) {
+      allPosts = allPosts.filter(function (post) {
+        return post.slug == query.id
       })
       hasQuery = true
-  }
+    }
 
-  return (
-    <section>
-      <ul className="list pa0 mv4">
-        {allPosts.map((post, index) =>
-          <PostItem key={ post.id } post={ post } hasQuery={ hasQuery } />
+    return (
+      <section>
+        <ul className="list pa0 mv4">
+          {allPosts.map((post, index) =>
+            <PostItem key={ post.id } post={ post } hasQuery={ hasQuery } />
         )}
-      </ul>
-      {areMorePosts ? <button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}
-    </section>
-  )
-}
+        </ul>
+        {areMorePosts ? <button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}
+      </section>
+    )
+  }
   return <div>Loading</div>
 }
 
@@ -61,14 +61,14 @@ export default graphql(allPosts, {
       first: POSTS_PER_PAGE
     }
   },
-  props: ({ data }) => ({
+  props: ({data}) => ({
     data,
     loadMorePosts: () => {
       return data.fetchMore({
         variables: {
           skip: data.allPosts.length
         },
-        updateQuery: (previousResult, { fetchMoreResult }) => {
+        updateQuery: (previousResult, {fetchMoreResult}) => {
           if (!fetchMoreResult.data) {
             return previousResult
           }

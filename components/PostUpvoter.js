@@ -1,8 +1,8 @@
 import React from 'react'
 import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
+import {graphql} from 'react-apollo'
 
-function PostUpvoter ({ upvote, votes, id }) {
+function PostUpvoter({upvote, votes, id}) {
   return (
     <div className="flex items-center">
       <button onClick={() => upvote(id, votes + 1)} className="upvote flex pa2 items-center bg-transparent ba b--black-10 br1 mr2" />
@@ -31,7 +31,7 @@ function PostUpvoter ({ upvote, votes, id }) {
             width: 0;
         }
         `}</style>
-      </div>
+    </div>
   )
 }
 
@@ -45,9 +45,9 @@ const upvotePost = gql`
 `
 
 export default graphql(upvotePost, {
-  props: ({ ownProps, mutate }) => ({
+  props: ({ownProps, mutate}) => ({
     upvote: (id, votes) => mutate({
-      variables: { id, votes },
+      variables: {id, votes},
       optimisticResponse: {
         updatePost: {
           id: ownProps.id,

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react'
 import Loading from './Loading'
 
 export default class extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       loading: true,
@@ -12,11 +12,11 @@ export default class extends Component {
   }
   componentWillMount() {
     if (typeof window !== 'undefined') {
-      var ReactMapboxGl = require('react-mapbox-gl').default;
-      var Layer = ReactMapboxGl.Layer;
-      var Feature = ReactMapboxGl.Feature;
-      var Marker = ReactMapboxGl.Marker;
-      const polyline = require('@mapbox/polyline');
+      var ReactMapboxGl = require('react-mapbox-gl').default
+      var Layer = ReactMapboxGl.Layer
+      var Feature = ReactMapboxGl.Feature
+      var Marker = ReactMapboxGl.Marker
+      const polyline = require('@mapbox/polyline')
 
       const routeLine = polyline.decode(this.state.segment.map.polyline)
 
@@ -27,8 +27,8 @@ export default class extends Component {
             accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
             center={ [this.state.segment.end_longitude, this.state.segment.end_latitude] }
             containerStyle={{
-              height: "40vh",
-              width: "100%"
+              height: '40vh',
+              width: '100%'
             }}>
             {/* <Layer
               type="symbol"
@@ -51,8 +51,8 @@ export default class extends Component {
             <Layer
               type="line"
               id="line"
-              layout={{ "line-cap": "round", "line-join": "round" }}
-              paint={{ "line-color": "#4790E5", "line-width": 12 }}>
+              layout={{'line-cap': 'round', 'line-join': 'round'}}
+              paint={{'line-color': '#4790E5', 'line-width': 12}}>
               <Feature coordinates={ routeLine }/>
             </Layer>
           </ReactMapboxGl>

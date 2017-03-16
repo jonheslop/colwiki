@@ -1,12 +1,12 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, {Head, Main, NextScript} from 'next/document'
 
 export default class MyDocument extends Document {
-  render () {
+  render() {
     return (
       <html>
         <Head>
-          <meta charSet='utf-8' />
-          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <title>⛰ Untitled Col Database Project</title>
           <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
           <style dangerouslySetInnerHTML={{__html: `
