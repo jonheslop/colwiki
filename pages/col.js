@@ -1,7 +1,7 @@
 import App from '../components/app'
 import Header from '../components/header'
 import PostList from '../components/post-list'
-import withData from '../lib/withData'
+import withData from '../lib/with-data'
 
 export default withData(props => (
   <App>
