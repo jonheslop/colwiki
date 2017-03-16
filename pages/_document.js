@@ -9,6 +9,8 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8"/>
           <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
           <title>⛰ Untitled Col Database Project</title>
+          <meta property="og:title" content="⛰ Untitled Col Database Project" />
+          <meta property="og:description" content="All the climbs, graded and rated in a clean and useable fashion" />
           <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
           <style
             dangerouslySetInnerHTML={{__html: `
