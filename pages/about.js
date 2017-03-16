@@ -1,5 +1,5 @@
-import App from '../components/App'
-import Header from '../components/Header'
+import App from '../components/app'
+import Header from '../components/header'
 
 export default props => (
   <App>

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import {graphql} from 'react-apollo'
 import Link from 'next/link'
-import PostItem from './PostItem'
+import PostItem from './post-item'
 
 const POSTS_PER_PAGE = 10
 

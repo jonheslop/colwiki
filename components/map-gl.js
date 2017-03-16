@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Loading from './Loading'
+import Loading from './loading'
 
 export default class extends Component {
   constructor(props) {

@@ -1,5 +1,4 @@
-import React from 'react'
-import DescriptionTerm from './DescriptionTerm'
+import DescriptionTerm from './description-term'
 
 export default ({segment}) => (
   <aside className="pa3 dtc-ns br b--black-20 w5-ns">

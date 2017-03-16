@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import PostUpvoter from './PostUpvoter'
-import Segment from './StravaSegment'
-import AddImage from './AddImage'
-import MapGL from './MapGL'
-import MapStatic from './MapStatic'
+import PostUpvoter from './post-voter'
+import Segment from './strava-segment'
+import AddImage from './add-image'
+import MapGL from './map-gl'
+import MapStatic from './map-static'
 
 export default ({post, hasQuery}) => (
   <li className="mb4 ba b--black-20">
