@@ -6,8 +6,8 @@ export default () => (
     <Link href="/" prefetch>
       <a>
         <svg viewBox="0 0 60 50">
-          <polygon points="50,50 0,50 25,0" style={{fill: '#aaa'}}/>
-          <polygon points="60,50 20,50 40,10" style={{fill: '#f4f4f4'}}/>
+          <polygon points="50,50 0,50 25,0" style={{fill: '#777'}}/>
+          <polygon points="60,50 20,50 40,10" style={{fill: '#aaa'}}/>
         </svg>
       </a>
     </Link>

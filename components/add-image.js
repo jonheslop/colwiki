@@ -31,7 +31,7 @@ class CreatePage extends React.Component {
                 let bgColor, color, donger, message
                 [bgColor, color, donger, message] = ["near-white", "black-20", "", "Drag photo here"]
                 if (isDragActive) {
-                  [bgColor, color, donger, message] = ["washed-yellow", "gold", "༼つ ் ▽ ் ༽つ", "Ok, let go, we got this"]
+                  [bgColor, color, donger, message] = ["washed-yellow", "red", "༼つ ் ▽ ் ༽つ", "Ok, let go, we got this"]
                 }
                 if (isDragReject) {
                   [bgColor, color, donger, message] = ["washed-red", "red", "¯_| ಠ ∧ ಠ |_/¯", "Images only please"]
@@ -48,7 +48,7 @@ class CreatePage extends React.Component {
             <img src={this.state.imageUrl} role='presentation' className='w-100 v-mid ba b--dark-gray border-box' />
           }
           {this.state.imageUrl &&
-            <button className='w-100 b ph3 pv2 input-reset ba bg-dark-gray near-white hover-gold b--dark-gray pointer f6' onClick={this.handlePost}>Save to entry</button>
+            <button className='w-100 b ph3 pv2 input-reset ba bg-dark-gray near-white hover-bg-red b--white pointer f6' onClick={this.handlePost}>Save to entry</button>
           }
       </div>
     )

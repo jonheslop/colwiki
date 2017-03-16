@@ -9,7 +9,7 @@ const Segment = ({segment}) => (
     <DescriptionTerm term="Avg. Gradient" value={segment.average_grade || '...'} unit="%"/>
     <DescriptionTerm term="Max. Gradient" value={segment.maximum_grade || '...'} unit="%"/>
     <DescriptionTerm term="Category" value={segment.climb_category} unit=""/>
-    <a className="lh-copy f6 link orange i" href={`https://www.strava.com/segments/${segment.id}`}>Link to Strava »</a>
+    <a className="lh-copy f6 link red i" href={`https://www.strava.com/segments/${segment.id}`}>Link to Strava »</a>
   </aside>
 )
 
