@@ -21,8 +21,6 @@
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
     "apollo-client": "^0.7.3",
-    "eslint-config-xo-react": "^0.10.0",
-    "eslint-plugin-react": "^6.10.0",
     "graphql": "^0.8.2",
     "graphql-tag": "^1.2.3",
     "next": "^2.0.0-beta",
@@ -38,13 +36,14 @@
     "slug": "^0.9.1"
   },
   "devDependencies": {
+    "eslint-config-xo": "^0.17.0",
+    "eslint-config-xo-react": "^0.10.0",
+    "eslint-plugin-react": "^6.10.0",
     "xo": "^0.17.1"
   },
-  "eslintConfig": {
-      "extends": ["xo", "xo-react/space"]
-  },
-  "xo":{
+  "xo": {
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "extends": "xo-react"
   }
 }

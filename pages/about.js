@@ -1,9 +1,10 @@
+import React from 'react'
 import App from '../components/app'
 import Header from '../components/header'
 
 export default props => (
   <App>
-    <Header pathname={props.url.pathname} />
+    <Header pathname={props.url.pathname}/>
     <main role="main" className="ml7-ns dark-gray ph4">
       <header className="mt4">
         <h1 className="f1 lh-title mb0">The idea behind the<br/>Untitled Col Database&nbsp;Project</h1>
@@ -13,7 +14,7 @@ export default props => (
         <p>A place that was easy to use and not cluttered.</p>
         <p>Well this is trying to be that</p>
         <h4 className="ttu tracket">Todo</h4>
-        <ul class="list">
+        <ul className="list">
           <li><s>Allow anyone to add a new climb</s></li>
           <li><s>Vote up good climbs</s></li>
           <li>Use map to find best Strava segment respresation of climb and save it</li>

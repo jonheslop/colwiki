@@ -1,12 +1,13 @@
+import React from 'react'
 import gql from 'graphql-tag'
 import {graphql} from 'react-apollo'
 
 function PostUpvoter({upvote, votes, id}) {
   return (
     <div className="flex items-center">
-      <button onClick={() => upvote(id, votes + 1)} className="upvote flex pa2 items-center bg-transparent ba b--black-10 br1 mr2" />
+      <button onClick={() => upvote(id, votes + 1)} className="upvote flex pa2 items-center bg-transparent ba b--black-10 br1 mr2"/>
       {votes}
-      <button onClick={() => upvote(id, votes - 1)} className="downvote flex pa2 items-center bg-transparent ba b--black-10 br1 ml2" />
+      <button onClick={() => upvote(id, votes - 1)} className="downvote flex pa2 items-center bg-transparent ba b--black-10 br1 ml2"/>
       <style jsx>{`
         button:hover {
             background-color: #cdecff;

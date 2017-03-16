@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default ({term, value, unit}) => (
   <dl className="f6 lh-copy ma0 mb2">
     <dt className="dib b mr1">{ term }:</dt>

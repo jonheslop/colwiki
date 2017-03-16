@@ -1,3 +1,4 @@
+import React from 'react'
 import gql from 'graphql-tag'
 import {graphql} from 'react-apollo'
 import Link from 'next/link'
@@ -12,7 +13,7 @@ function PostList({data: {allPosts, loading, _allPostsMeta}, loadMorePosts, quer
 
     if (query) {
       allPosts = allPosts.filter(function (post) {
-        return post.slug == query.id
+        return post.slug === query.id
       })
       hasQuery = true
     }
@@ -20,8 +21,8 @@ function PostList({data: {allPosts, loading, _allPostsMeta}, loadMorePosts, quer
     return (
       <section>
         <ul className="list pa0 mv4">
-          {allPosts.map((post, index) =>
-            <PostItem key={ post.id } post={ post } hasQuery={ hasQuery } />
+          {allPosts.map(post =>
+            <PostItem key={post.id} post={post} hasQuery={hasQuery}/>
         )}
         </ul>
         {areMorePosts ? <button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}

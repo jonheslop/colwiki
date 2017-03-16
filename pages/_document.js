@@ -1,3 +1,4 @@
+import React from 'react'
 import Document, {Head, Main, NextScript} from 'next/document'
 
 export default class MyDocument extends Document {
@@ -5,11 +6,12 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta charSet="utf-8"/>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
           <title>⛰ Untitled Col Database Project</title>
           <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
-          <style dangerouslySetInnerHTML={{__html: `
+          <style
+            dangerouslySetInnerHTML={{__html: `
             .cw-blue {
                 color: #6a9fb5;
             }
@@ -26,11 +28,12 @@ export default class MyDocument extends Document {
             .f7 {
                 font-size: .625rem;
             }
-          `}} />
+          `}}
+            />
         </Head>
         <body className="sans-serif">
-          <Main />
-          <NextScript />
+          <Main/>
+          <NextScript/>
         </body>
       </html>
     )

@@ -25,11 +25,12 @@ export default class extends Component {
           <ReactMapboxGl
             style="mapbox://styles/mapbox/outdoors-v9"
             accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
-            center={ [this.state.segment.end_longitude, this.state.segment.end_latitude] }
+            center={[this.state.segment.end_longitude, this.state.segment.end_latitude]}
             containerStyle={{
               height: '40vh',
               width: '100%'
-            }}>
+            }}
+            >
             {/* <Layer
               type="symbol"
               id="marker"
@@ -52,8 +53,9 @@ export default class extends Component {
               type="line"
               id="line"
               layout={{'line-cap': 'round', 'line-join': 'round'}}
-              paint={{'line-color': '#4790E5', 'line-width': 12}}>
-              <Feature coordinates={ routeLine }/>
+              paint={{'line-color': '#4790E5', 'line-width': 12}}
+              >
+              <Feature coordinates={routeLine}/>
             </Layer>
           </ReactMapboxGl>
         </div>
@@ -66,7 +68,7 @@ export default class extends Component {
   }
   render() {
     if (this.state.loading) {
-      return <Loading />
+      return <Loading/>
     }
     return this.state.map
   }
