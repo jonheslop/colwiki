@@ -35,6 +35,11 @@ function PostUpvoter({upvote, votes, id}) {
   )
 }
 
+PostUpvoter.propTypes = {
+  upvote: React.PropTypes.func,
+  votes: React.PropTypes.number,
+  id: React.PropTypes.string
+}
 const upvotePost = gql`
   mutation updatePost($id: ID!, $votes: Int) {
     updatePost(id: $id, votes: $votes) {

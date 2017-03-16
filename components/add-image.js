@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Dropzone from 'react-dropzone'
-import DropzoneMessage from './DropzoneMessage'
+import DropzoneMessage from './dropzone-message'
 
 class CreatePage extends React.Component {
 

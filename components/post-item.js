@@ -6,7 +6,7 @@ import AddImage from './add-image'
 import MapGL from './map-gl'
 import MapStatic from './map-static'
 
-export default ({post, hasQuery}) => (
+const PostItem = ({post, hasQuery}) => (
   <li className="mb4 ba b--black-20">
     <header className="bg-near-white pa3 cf flex items-center bb b--black-20">
       <h2 className="ma0 items-start flex-auto">
@@ -26,3 +26,10 @@ export default ({post, hasQuery}) => (
     { hasQuery ? <MapGL segment={post.segment}/> : <MapStatic segment={post.segment}/> }
   </li>
 )
+
+PostItem.propTypes = {
+  post: React.PropTypes.object,
+  hasQuery: React.PropTypes.bool
+}
+
+export default PostItem

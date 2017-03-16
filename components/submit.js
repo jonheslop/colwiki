@@ -1,6 +1,7 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import slugify from 'slug'
+import fetch from 'isomorphic-fetch'
 import {graphql} from 'react-apollo'
 
 function Submit({createPost}) {
@@ -9,7 +10,7 @@ function Submit({createPost}) {
 
     let name = e.target.elements.name.value
     let description = e.target.elements.description.value
-    let segmentId = parseInt(e.target.elements.segmentId.value)
+    let segmentId = parseInt(e.target.elements.segmentId.value, 10)
     let slug = slugify(e.target.elements.name.value, {lower: true})
 
     if (name === '' || description === '' || segmentId === '') {
@@ -46,7 +47,7 @@ function Submit({createPost}) {
       <div className="pv2">
         <label htmlFor="comment" className="f6 b db mb2">Description <span className="normal black-60">(optional)</span></label>
         <textarea name="description" className="db border-box hover-black w-100 measure ba b--black-20 pa2 mb2" placeholder="Tell us a story&hellip;" aria-describedby="comment-desc"/>
-        <input className="submit" type="submit" className="b ph3 pv2 input-reset ba bg-dark-gray near-white hover-gold b--dark-gray pointer f6" value="Submit"/>
+        <input type="submit" className="submit b ph3 pv2 input-reset ba bg-dark-gray near-white hover-gold b--dark-gray pointer f6" value="Submit"/>
       </div>
     </form>
   )
@@ -66,6 +67,10 @@ const createPost = gql`
     }
   }
 `
+
+Submit.propTypes = {
+  createPost: React.PropTypes.func
+}
 
 export default graphql(createPost, {
   props: ({mutate}) => ({

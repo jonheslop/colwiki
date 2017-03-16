@@ -1,7 +1,6 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import {graphql} from 'react-apollo'
-import Link from 'next/link'
 import PostItem from './post-item'
 
 const POSTS_PER_PAGE = 10
@@ -25,7 +24,7 @@ function PostList({data: {allPosts, loading, _allPostsMeta}, loadMorePosts, quer
             <PostItem key={post.id} post={post} hasQuery={hasQuery}/>
         )}
         </ul>
-        {areMorePosts ? <button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}
+        {areMorePosts ? <button onClick={loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}
       </section>
     )
   }
@@ -52,6 +51,12 @@ const allPosts = gql`
     }
   }
 `
+
+PostList.propTypes = {
+  data: React.PropTypes.object,
+  loadMorePosts: React.PropTypes.func,
+  query: React.PropTypes.bool
+}
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (PostList)
