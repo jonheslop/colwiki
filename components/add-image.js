@@ -28,26 +28,33 @@ class CreatePage extends React.Component {
             multiple={false}
             style={{}}>
             {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                const dropzoneProps = {
+                  bgColor: "near-white",
+                  color: "black-20",
+                  donger: "",
+                  message: "Drag photo here"
+                }
                 if (isDragActive) {
-                  return (
-                    <DropzoneMessage bgColor="washed-yellow" color="gold" donger="༼つ ் ▽ ் ༽つ" message="Ok, let go, we got this" />
-                    )
+                  dropzoneProps.bgColor = "washed-yellow"
+                  dropzoneProps.color = "gold"
+                  dropzoneProps.donger = "༼つ ் ▽ ் ༽つ"
+                  dropzoneProps.message = "Ok, let go, we got this"
                 }
                 if (isDragReject) {
-                  return (
-                    <DropzoneMessage bgColor="washed-red" color="red" donger="¯_| ಠ ∧ ಠ |_/¯" message="Images only please" />
-                  )
+                  dropzoneProps.bgColor = "washed-red"
+                  dropzoneProps.color = "red"
+                  dropzoneProps.donger = "¯_| ಠ ∧ ಠ |_/¯"
+                  dropzoneProps.message = "Images only please"
                 }
                 if (acceptedFiles != 0) {
-                  return (
-                    <DropzoneMessage bgColor="washed-green" color="green" donger="ᕙ( ~ . ~ )ᕗ" message="Uploading&hellip;" />
-                  )
+                  dropzoneProps.bgColor = "washed-green"
+                  dropzoneProps.color = "green"
+                  dropzoneProps.donger = "ᕙ( ~ . ~ )ᕗ"
+                  dropzoneProps.message = "Uploading&hellip;"
                 }
-                if (!isDragActive && !isDragReject) {
-                  return (
-                    <DropzoneMessage bgColor="near-white" color="black-20" message="Drag photo here" />
-                  )
-                }
+                return (
+                  <DropzoneMessage bgColor={dropzoneProps.bgColor} donger={dropzoneProps.donger} color={dropzoneProps.color} message={dropzoneProps.message} />
+                )
             }}
           </Dropzone>}
           {this.state.imageUrl &&
