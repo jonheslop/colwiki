@@ -27,33 +27,20 @@ class CreatePage extends React.Component {
             accept='image/*'
             multiple={false}
             style={{}}>
-            {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                const dropzoneProps = {
-                  bgColor: "near-white",
-                  color: "black-20",
-                  donger: "",
-                  message: "Drag photo here"
-                }
+              {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                let bgColor, color, donger, message
+                [bgColor, color, donger, message] = ["near-white", "black-20", "", "Drag photo here"]
                 if (isDragActive) {
-                  dropzoneProps.bgColor = "washed-yellow"
-                  dropzoneProps.color = "gold"
-                  dropzoneProps.donger = "༼つ ் ▽ ் ༽つ"
-                  dropzoneProps.message = "Ok, let go, we got this"
+                  [bgColor, color, donger, message] = ["washed-yellow", "gold", "༼つ ் ▽ ் ༽つ", "Ok, let go, we got this"]
                 }
                 if (isDragReject) {
-                  dropzoneProps.bgColor = "washed-red"
-                  dropzoneProps.color = "red"
-                  dropzoneProps.donger = "¯_| ಠ ∧ ಠ |_/¯"
-                  dropzoneProps.message = "Images only please"
+                  [bgColor, color, donger, message] = ["washed-red", "red", "¯_| ಠ ∧ ಠ |_/¯", "Images only please"]
                 }
                 if (acceptedFiles != 0) {
-                  dropzoneProps.bgColor = "washed-green"
-                  dropzoneProps.color = "green"
-                  dropzoneProps.donger = "ᕙ( ~ . ~ )ᕗ"
-                  dropzoneProps.message = "Uploading&hellip;"
+                  [bgColor, color, donger, message] = ["washed-green", "green", "ᕙ( ~ . ~ )ᕗ", "Uploading&hellip;"]
                 }
                 return (
-                  <DropzoneMessage bgColor={dropzoneProps.bgColor} donger={dropzoneProps.donger} color={dropzoneProps.color} message={dropzoneProps.message} />
+                  <DropzoneMessage bgColor={bgColor} donger={donger} color={color} message={message} />
                 )
             }}
           </Dropzone>}
