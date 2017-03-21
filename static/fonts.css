@@ -2,9 +2,9 @@
 
 @font-face {
     font-family: 'LT Tofino';
-    src: url('tofino-bold-webfont.woff2') format('woff2'),
-         url('tofino-bold-webfont.woff') format('woff');
-    font-weight: 600;
+    src: url('tofino-medium-webfont.woff2') format('woff2'),
+         url('tofino-medium-webfont.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     font-kerning: normal;
@@ -13,9 +13,9 @@
 
 @font-face {
     font-family: 'LT Tofino';
-    src: url('tofino-bolditalic-webfont.woff2') format('woff2'),
-         url('tofino-bolditalic-webfont.woff') format('woff');
-    font-weight: 600;
+    src: url('tofino-mediumitalic-webfont.woff2') format('woff2'),
+         url('tofino-mediumitalic-webfont.woff') format('woff');
+    font-weight: 500;
     font-style: italic;
     font-stretch: normal;
     font-kerning: normal;
@@ -24,9 +24,9 @@
 
 @font-face {
     font-family: 'LT Tofino';
-    src: url('tofino-regular-webfont.woff2') format('woff2'),
-         url('tofino-regular-webfont.woff') format('woff');
-    font-weight: 400;
+    src: url('tofino-book-webfont.woff2') format('woff2'),
+         url('tofino-book-webfont.woff') format('woff');
+    font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     font-kerning: normal;
@@ -35,9 +35,9 @@
 
 @font-face {
     font-family: 'LT Tofino';
-    src: url('tofino-regularitalic-webfont.woff2') format('woff2'),
-         url('tofino-regularitalic-webfont.woff') format('woff');
-    font-weight: 400;
+    src: url('tofino-bookitalic-webfont.woff2') format('woff2'),
+         url('tofino-bookitalic-webfont.woff') format('woff');
+    font-weight: 300;
     font-style: italic;
     font-stretch: normal;
     font-kerning: normal;
@@ -45,5 +45,16 @@
 }
 
 .tofino {
-  font-family: "LT Tofino", -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif
+  font-family: "LT Tofino", -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  font-weight: 300;
+}
+
+.tofino.b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }

@@ -41,7 +41,7 @@ function Submit({createPost}) {
         </div>
         <div className="pv2 dib">
           <label htmlFor="segmentId" className="f6 b db mb2">Strava segment ID</label>
-          <input className="tofino pa2 input-reset ba bg-transparent b--black-20" placeholder="4704703" name="segmentId" pattern="\d*"/>
+          <input className="tofino pa2 input-reset ba bg-transparent b--black-20" placeholder="4714703" name="segmentId" pattern="\d*"/>
         </div>
       </div>
       <div className="pv2">

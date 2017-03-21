@@ -7,7 +7,7 @@ const Header = ({pathname}) => (
   <header role="banner" className="fixed-ns vh-100-ns w-100 w5-ns bg-near-white dark-gray top-0 left-0 flex content-center justify-center flex-column border-box pa4">
     <header className="items-start flex-auto">
       <Logo/>
-      <h1 className="fl w-50 w-100-ns f4 lh-title fw6 pl3 pl0-ns"><Link href="/" prefetch><a className="link dark-gray hover-red hover-red">Untitled Col<br/>Database Project</a></Link></h1>
+      <h1 className="fl w-50 w-100-ns f4 lh-title fw5 pl3 pl0-ns"><Link href="/" prefetch><a className="link dark-gray hover-red hover-red">Untitled Col<br/>Database Project</a></Link></h1>
       <Nav pathname={pathname}/>
     </header>
     <footer className="lh-copy">
