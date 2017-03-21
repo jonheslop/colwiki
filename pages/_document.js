@@ -11,10 +11,16 @@ export default class MyDocument extends Document {
           <title>⛰ Untitled Col Database Project</title>
           <meta property="og:title" content="⛰ Untitled Col Database Project" />
           <meta property="og:description" content="All the climbs, graded and rated in a clean and useable fashion" />
-          <link rel="prefetch" href="./static/tofino-medium-webfont.woff2"/>
-          <link rel="prefetch" href="./static/tofino-mediumitalic-webfont.woff2"/>
           <link rel="prefetch" href="./static/tofino-book-webfont.woff2"/>
           <link rel="prefetch" href="./static/tofino-bookitalic-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-regular-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-regularitalic-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-medium-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-mediumitalic-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-bold-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-bolditalic-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-black-webfont.woff2"/>
+          <link rel="prefetch" href="./static/tofino-blackitalic-webfont.woff2"/>
           <link rel="stylesheet" href="./static/fonts.css"/>
           <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
           <style

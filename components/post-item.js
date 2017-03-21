@@ -20,7 +20,7 @@ const PostItem = ({post, hasQuery}) => (
     </header>
     <article className="pa3 bb b--black-20 cf">
       { post.image ? <img className="v-mid fr w-50 w-third-ns" src={post.image.url}/> : <AddImage postid={post.id}/> }
-      <p className="ph2 lh-copy f6">{ post.description }</p>
+      <p className="ph2 lh-copy f5">{ post.description }</p>
     </article>
     <Segment segment={post.segment}/>
     { hasQuery ? <MapGL segment={post.segment}/> : <MapStatic segment={post.segment}/> }

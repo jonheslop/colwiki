@@ -2,8 +2,8 @@ import React from 'react'
 
 const DescriptionTerm = ({term, value, unit}) => (
   <dl className="f6 lh-copy ma0 mb2">
-    <dt className="dib b mr1">{ term }:</dt>
-    <dd className="dib ml0 gray">{ value === 5 ? 'HC' : value || '...' }{ unit }</dd>
+    <dt className="dib fw5 gray mr1">{ term }:</dt>
+    <dd className="dib ml0 ">{ value === 5 ? 'HC' : value || '...' }{ unit }</dd>
   </dl>
 )
 
