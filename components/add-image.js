@@ -48,7 +48,7 @@ class CreatePage extends React.Component {
             <img src={this.state.imageUrl} role='presentation' className='w-100 v-mid ba b--dark-gray border-box' />
           }
           {this.state.imageUrl &&
-            <button className='w-100 b ph3 pv2 input-reset ba bg-dark-gray near-white hover-bg-red b--white pointer f6' onClick={this.handlePost}>Save to entry</button>
+            <button className='tofino w-100 ttu tracked ph3 pv2 input-reset ba bg-dark-gray near-white hover-bg-red b--white pointer f6' onClick={this.handlePost}>Save to entry</button>
           }
       </div>
     )

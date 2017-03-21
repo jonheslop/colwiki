@@ -10,7 +10,7 @@ const Header = ({pathname}) => (
       <h1 className="fl w-50 w-100-ns f4 lh-title fw6 pl3 pl0-ns"><Link href="/" prefetch><a className="link dark-gray hover-red hover-red">Untitled Col<br/>Database Project</a></Link></h1>
       <Nav pathname={pathname}/>
     </header>
-    <footer className="code lh-copy">
+    <footer className="lh-copy">
       <p className="f7 i">By Jon &amp; Dov</p>
       <p className="f7 i">Powered by <a href="http://zeit.co/blog/next" className="link dark-gray hover-red underline">Next.js</a>, <a href="http://www.graph.cool" className="link dark-gray hover-red underline">Graph.cool</a> &amp; the <a href="http://www.strava.com" className="link dark-gray hover-red underline">Strava API</a></p>
       <p className="f7 i"><a className="link dark-gray hover-red underline" href="https://github.com/jonheslop/colwiki">View source on Github</a></p>
