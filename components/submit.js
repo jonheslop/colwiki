@@ -25,8 +25,6 @@ function Submit({createPost}) {
     const res = await fetch('https://www.strava.com/api/v3/segments/' + segmentId + '?access_token=5b5d96d72e2a68787801cd193668a83de0bc41ff')
     const segment = await res.json()
 
-    console.log(segment)
-
     createPost(name, description, segmentId, slug, segment)
 
     // reset form
