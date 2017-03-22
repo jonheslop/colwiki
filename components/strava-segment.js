@@ -1,8 +1,8 @@
 import React from 'react'
 import DescriptionTerm from './description-term'
 
-const Segment = ({segment}) => (
-  <aside className="pa3 dtc-ns br b--black-20 w5-ns">
+const Segment = ({segment, containerClasses}) => (
+  <aside className={containerClasses}>
     <DescriptionTerm term="Name" value={segment.name || '...'} unit=""/>
     <DescriptionTerm term="Length" value={(segment.distance / 1000).toFixed(1) || '...'} unit="km"/>
     <DescriptionTerm term="Elevation" value={segment.total_elevation_gain || '...'} unit="m"/>
@@ -14,7 +14,8 @@ const Segment = ({segment}) => (
 )
 
 Segment.propTypes = {
-  segment: React.PropTypes.object
+  segment: React.PropTypes.object,
+  containerClasses: React.PropTypes.string
 }
 
 export default Segment

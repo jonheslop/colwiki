@@ -21,7 +21,7 @@ const PostItem = ({post}) => (
       { post.image ? <img className="v-mid fr w-50 w-third-ns" src={post.image.url}/> : <AddImage postid={post.id}/> }
       <p className="ph2 lh-copy f5">{ post.description }</p>
     </article>
-    <Segment segment={post.segment}/>
+    <Segment segment={post.segment} containerClasses="pa3 dtc-ns br b--black-20 w5-ns"/>
     <MapStatic segment={post.segment}/>
   </li>
 )

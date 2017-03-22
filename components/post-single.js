@@ -13,20 +13,20 @@ function PostList({data: {Post}}) {
       <section>
         <MapGL segment={Post.segment}/>
         <header className="bg-near-white pa3 cf flex items-center bb b--black-20">
-          <h2 className="ma0 items-start flex-auto">
+          <h1 className="ma0 items-start flex-auto">
             <Link key={Post.id} href={`/col?id=${Post.slug}`} prefetch>
               <a className="link dark-gray hover-black">
                 { Post.name }
               </a>
             </Link>
-          </h2>
+          </h1>
           <PostUpvoter id={Post.id} votes={Post.votes}/>
         </header>
         <article className="pa3 bb b--black-20 cf">
           { Post.image ? <img className="v-mid fr w-50 w-third-ns" src={Post.image.url}/> : <AddImage Postid={Post.id}/> }
           <p className="ph2 lh-copy f5">{ Post.description }</p>
         </article>
-        <Segment segment={Post.segment}/>
+        <Segment segment={Post.segment} containerClasses="pa3 w5-ns"/>
       </section>
     )
   }
