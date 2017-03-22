@@ -3,10 +3,9 @@ import Link from 'next/link'
 import PostUpvoter from './post-voter'
 import Segment from './strava-segment'
 import AddImage from './add-image'
-import MapGL from './map-gl'
 import MapStatic from './map-static'
 
-const PostItem = ({post, hasQuery}) => (
+const PostItem = ({post}) => (
   <li className="mb4 ba b--black-20">
     <header className="bg-near-white pa3 cf flex items-center bb b--black-20">
       <h2 className="ma0 items-start flex-auto">
@@ -23,7 +22,7 @@ const PostItem = ({post, hasQuery}) => (
       <p className="ph2 lh-copy f5">{ post.description }</p>
     </article>
     <Segment segment={post.segment}/>
-    { hasQuery ? <MapGL segment={post.segment}/> : <MapStatic segment={post.segment}/> }
+    <MapStatic segment={post.segment}/>
   </li>
 )
 
