@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 export default () => (
-  <div className="fl w-50 w-100-ns mb3-ns cf">
+  <div className="fl w-20 w-100-ns mb3-ns cf">
     <Link href="/" prefetch>
       <a>
         <svg viewBox="0 0 60 50">

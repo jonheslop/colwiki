@@ -14,7 +14,11 @@ function Submit({createPost}) {
     let slug = slugify(e.target.elements.name.value, {lower: true})
 
     if (name === '' || description === '' || segmentId === '') {
-      window.alert('All fields are required.')
+      for (let element of e.target.elements) {
+        if (!element.className.includes('submit')) {
+          element.classList.add('b--red')
+        }
+      }
       return false
     }
 

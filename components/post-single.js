@@ -31,7 +31,7 @@ function PostList({data: {Post}}) {
     )
   }
 
-  return <div>Loading</div>
+  return <div className="pa4">Loading...</div>
 }
 
 const Post = gql`
