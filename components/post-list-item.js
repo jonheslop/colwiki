@@ -20,7 +20,7 @@ const PostItem = ({post}) => (
     <article className="pa3 bb b--black-20 cf">
       { post.image ? <img className="v-mid fr w-50 w-third-ns pl3" src={post.image.url}/> : <AddImage postid={post.id}/> }
       <div className="ph2">
-        <h3 className="f6 ttu tracked">Essence</h3>
+        <h3 className="f6 ttu tracked">Summary</h3>
         <p className="f5 lh-copy measure">{ post.description }</p>
       </div>
     </article>

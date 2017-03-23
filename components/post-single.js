@@ -29,7 +29,7 @@ function PostList({data: {Post}}) {
         <article className="pa4 bt b--black-20 cf">
           { Post.image ? <img className="v-mid fr w-50 w-third-ns pl3" src={Post.image.url}/> : <AddImage Postid={Post.id}/> }
           <div>
-            <h3 className="f6 ttu tracked">Essence</h3>
+            <h3 className="f6 ttu tracked">Summary</h3>
             <p className="f4 lh-copy measure">{ Post.description }</p>
           </div>
         </article>
