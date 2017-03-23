@@ -12,21 +12,27 @@ function PostList({data: {Post}}) {
     return (
       <section>
         <MapGL segment={Post.segment}/>
-        <header className="bg-near-white pa3 cf flex items-center bb b--black-20">
-          <h1 className="ma0 items-start flex-auto">
+        <header className="bg-near-white pa4 pv3 cf flex items-center bb b--black-20">
+          <h1 className="ma0 items-start flex-auto f2 f1-l">
             <Link key={Post.id} href={`/col?id=${Post.slug}`} prefetch>
-              <a className="link dark-gray hover-black">
+              <a className="link dark-gray hover-black mr4-l">
                 { Post.name }
               </a>
             </Link>
+            <div className="gray dib-l f5 f3-l i fw3">
+              { Post.segment.state }, { Post.segment.country }
+            </div>
           </h1>
           <PostUpvoter id={Post.id} votes={Post.votes}/>
         </header>
-        <article className="pa3 bb b--black-20 cf">
-          { Post.image ? <img className="v-mid fr w-50 w-third-ns" src={Post.image.url}/> : <AddImage Postid={Post.id}/> }
-          <p className="ph2 lh-copy f5">{ Post.description }</p>
+        <Segment segment={Post.segment} containerClasses="pa4" context="single"/>
+        <article className="pa4 bt b--black-20 cf">
+          { Post.image ? <img className="v-mid fr w-50 w-third-ns pl3" src={Post.image.url}/> : <AddImage Postid={Post.id}/> }
+          <div>
+            <h3 className="f6 ttu tracked">Essence</h3>
+            <p className="f4 lh-copy measure">{ Post.description }</p>
+          </div>
         </article>
-        <Segment segment={Post.segment} containerClasses="pa3 w5-ns"/>
       </section>
     )
   }
