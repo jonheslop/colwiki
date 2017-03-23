@@ -24,7 +24,7 @@ export default class extends Component {
       routeLine.map(function (coordinates) {
         return coordinates.reverse()
       })
-      
+
       const map = (
         <div className="bt b--black-20">
           <ReactMapboxGl
