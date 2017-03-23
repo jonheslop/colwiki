@@ -12,11 +12,11 @@ export default class extends Component {
   }
   componentWillMount() {
     if (typeof window !== 'undefined') {
-      var ReactMapboxGl = require('react-mapbox-gl').default
-      var ReactMapboxGlFunc = require('react-mapbox-gl')
-      var Layer = ReactMapboxGlFunc.Layer
-      var Feature = ReactMapboxGlFunc.Feature
-      var Marker = ReactMapboxGlFunc.Marker
+      var ReactMapboxGl = require('react-mapbox-gl')
+      var ReactMapboxGlComponent = ReactMapboxGl.default
+      var Layer = ReactMapboxGl.Layer
+      var Feature = ReactMapboxGl.Feature
+      var Marker = ReactMapboxGl.Marker
       const polyline = require('@mapbox/polyline')
 
       const routeLine = polyline.decode(this.state.segment.map.polyline)
@@ -26,8 +26,8 @@ export default class extends Component {
       })
 
       const map = (
-        <div className="bt b--black-20">
-          <ReactMapboxGl
+        <div className="bb b--black-20">
+          <ReactMapboxGlComponent
             style="mapbox://styles/mapbox/outdoors-v9"
             accessToken="pk.eyJ1IjoiY2hyeXNhbGlzc29sbW90aXZlIiwiYSI6ImNqMDB5aG5ndDAwNHUzM3I0cmswbjVvOXYifQ.crgwy6034BHr2ZlLEa5rlg"
             // fitBounds={[[-79, 43], [-73, 45]]}
@@ -49,13 +49,13 @@ export default class extends Component {
               layout={{'line-cap': 'round', 'line-join': 'round'}}
               paint={{
                 'line-color': '#ff4136',
-                'line-opacity': .5,
+                'line-opacity': 0.5,
                 'line-width': 4
               }}
               >
               <Feature coordinates={routeLine}/>
             </Layer>
-          </ReactMapboxGl>
+          </ReactMapboxGlComponent>
         </div>
       )
       this.setState({
