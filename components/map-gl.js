@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Loading from './loading'
 import MarkerIcon from '../svg/marker.svg'
+import Loading from './loading'
 
 export default class extends Component {
   constructor(props) {
@@ -13,13 +13,13 @@ export default class extends Component {
   }
   componentWillMount() {
     if (typeof window !== 'undefined') {
-      var ReactMapboxGl = require('react-mapbox-gl')
-      var ReactMapboxGlComponent = ReactMapboxGl.default
-      var Layer = ReactMapboxGl.Layer
-      var Feature = ReactMapboxGl.Feature
-      var Marker = ReactMapboxGl.Marker
+      const ReactMapboxGl = require('react-mapbox-gl')
       const polyline = require('@mapbox/polyline')
 
+      const ReactMapboxGlComponent = ReactMapboxGl.default
+      const Layer = ReactMapboxGl.Layer
+      const Feature = ReactMapboxGl.Feature
+      const Marker = ReactMapboxGl.Marker
       const routeLine = polyline.decode(this.state.segment.map.polyline)
 
       routeLine.map(function (coordinates) {
